@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<nav>
+        <ul>
+        <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/add}">Add Ticket</a></li>
+            <li><a th:href="@{/view}">View Tickets</a></li>
+            <li><a th:href="@{/login}">Login</a></li>
+            <li><a th:href="@{/register}">Register</a></li>
+        </ul>
+    </nav>
+<h2>You Don't Have Access :(</h2>
+<a th:href="@{/}" style="color: #ffdd57; font-size: 1.2em; margin-top: 20px; display: block;">Home</a>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Halloween Haunt - Dare to Enter!</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+ <nav>
+        <ul>
+          <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/add}">Add Ticket</a></li>
+            <li><a th:href="@{/view}">View Tickets</a></li>
+            <li><a th:href="@{/login}">Login</a></li>
+            <li><a th:href="@{/register}">Register</a></li>
+        </ul>
+    </nav>
+
+   
+    <div class="container">
+        <div>
+            <h1>Halloween Haunt - Dare to Enter!</h1>
+        <p>Join us at the spookiest event of the year, running from <strong>October 3</strong> to <strong>September 10</strong>!</p>
+        <p>Don't miss out on bone-chilling attractions, eerie decor, and hair-raising fun.</p>
+        <div class="btn-container"></div>
+             <a th:href="@{/add}" class="btn">Buy Tickets</a>
+             <a th:href="@{/view}" class="btn">View Tickets</a>
+        </div>
+
+        <div>
+            <img src="/Images/bg3.jpg">
+        </div>
+    </div>
+
+    <h2>Ticket Prices:</h2>
+        <ul >
+            <li><strong>Weekdays (5PM - 10 PM):</strong> $25</li>
+            <li><strong>Fridays (6PM - 12AM):</strong> $30</li>
+            <li><strong>Weekends (10AM - 12 PM):</strong> $35</li>
+        </ul>
+
+        <p><strong>Location:</strong> The Haunt is located at Sheridan College. Be prepared for a night of thrills and scares!</p>
+
+</body>
+</html>

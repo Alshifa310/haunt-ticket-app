@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Tickets</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+    <nav>
+        <ul>
+          <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/add}">Add Ticket</a></li>
+            <li><a th:href="@{/view}">View Tickets</a></li>
+            <li><a th:href="@{/login}">Login</a></li>
+            <li><a th:href="@{/register}">Register</a></li>
+        </ul>
+    </nav>
+
+    <h1>List of Tickets</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Day of Visit</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="ticket : ${ticketList}">
+            <td th:text="${ticket.id}"></td>
+            <td th:text="${ticket.name}"></td>
+            <td th:text="${ticket.price}"></td>
+            <td th:text="${ticket.phonenum}"></td>
+            <td th:text="${ticket.email}"></td>
+            <td th:text="${ticket.age}"></td>
+            <td th:text="${ticket.progday}"></td>
+            <td>
+                <a th:href="@{/edit/{id}(id=${ticket.id})}" style="margin-right: 10px;">Edit</a>
+                <a th:href="@{/delete/{id}(id=${ticket.id})}" style="color: red;">Delete</a>
+            </td>
+        </tr>
+    </table>
+<div th:if="${ticketList.size() > 0 && subtotal > 0}">
+    <h3>Ticket Summary</h3>
+    <p>Subtotal: $<span th:text="${subtotal}"></span></p>
+    <p>Tax (13%): $<span th:text="${tax}"></span></p>
+    <p>Total: $<span th:text="${total}"></span></p>
+</div>
+    
+</body>
+</html>

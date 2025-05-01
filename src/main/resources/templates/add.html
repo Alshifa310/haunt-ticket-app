@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Ticket</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <style>
+     .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;  /* Full height of the viewport */
+            margin: 0;
+        }
+    form {
+            width: 60%; /* You can adjust this to increase/decrease the width */
+            max-width: 800px; /* Optional: sets a maximum width */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+  <nav>
+        <ul>
+          <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/add}">Add Ticket</a></li>
+            <li><a th:href="@{/view}">View Tickets</a></li>
+            <li><a th:href="@{/login}">Login</a></li>
+            <li><a th:href="@{/register}">Register</a></li>
+        </ul>
+    </nav>
+    <h1>Add Ticket</h1>
+    <div class="container">
+    <form th:action="@{/add}" method="post" th:object="${ticket}">
+        <label for="name">Name:</label>
+        <!--  <input type="text" id="name" th:field="*{name}" placeholder="Enter your name" required/><br><br> -->
+        
+        <select name="guest" id="guest" th:field="*{name}">
+        <option value="" disabled selected>Select a guest</option>
+            <option th:each="guest : ${guests}" th:value="${guest.userName}" th:text="${guest.userName}"></option>
+       
+    </select>
+        
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" th:field="*{email}" placeholder="Enter your email" required/><br><br>
+        
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" th:field="*{phonenum}" placeholder="Enter your phone number" required/><br><br>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" th:field="*{age}" min="0" placeholder="Enter your age" required/><br><br>
+        
+        <label for="price">Price:</label>
+        <input type="number" id="price" th:field="*{price}" step="0.01" min="0" placeholder="Enter ticket price" required/><br><br>
+        
+        <label for="day">Day to Visit:</label>
+        <select id="day" th:field="*{progday}" required>
+            <option value="" disabled selected>Select a day</option>
+            <option th:each="g : *{progdays}" th:text="${g}" th:value="${g}"></option>
+        </select><br><br>
+        
+        <input type="submit" value="Add Ticket"/>
+    </form>
+    </div>
+</body>
+</html>

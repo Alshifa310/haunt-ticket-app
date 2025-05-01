@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/style.css}" href="/style.css">
+</head>
+<body>
+<nav>
+        <ul>
+          <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/add}">Add Ticket</a></li>
+            <li><a th:href="@{/view}">View Tickets</a></li>
+            <li><a th:href="@{/login}">Login</a></li>
+            <li><a th:href="@{/register}">Register</a></li>
+        </ul>
+    </nav>
+<div class="container">
+<div th:if="${param.failed}" style="color:red;" class="message">
+Incorrect Password or Username
+</div>
+
+      <form class="form-signin logout-form" method="post" th:action="@{/login}" >
+        <h1 class="form-signin-heading">Please sign in</h1>
+        <p class="form-field">
+          <label for="username" class="sr-only">Username</label>
+          <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+        </p>
+        <p class="form-field">
+          <label for="password" class="sr-only">Password</label>
+          <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+        </p>
+        <input type="submit" value="Login">
+      </form>
+</div>
+
+</body>
+</html>
